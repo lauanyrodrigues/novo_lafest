@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <title>JAVASCRIPT</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+      <script>
+        const agenda = [];
+        var resp;
+        do{
+            resp = prompt("1-Cadastrar \n 2-Buscar\n 3-Atualizar \n 4-Remover \n 5-Sair")
+
+            if(resp == 1){
+                const nome = prompt("Qual o nome: ");
+                const tel = prompt("Qual o telefone: ");
+                agenda.push({ nome, telefone: tel });
+            } else if (resp == 2){
+                const busca = prompt("Qual o nome deseja buscar: ");
+                agenda.forEach((nome)) => {
+                    if (item.nome.includes(busca)){
+                        alert(`${item.nome}/ ${item.telefone}`);
+                    }
+                }
+            } else(resp == 3){
+                const nome = prompt("Qual o nome: ");
+                const tel = prompt("Qual o telefone: ")
+                agenda.push({nome, telefone: tel});
+            } else(resp == 4){
+                const nome = prompt("Qual o nome: ");
+                agenda.pop({nome,telefone:tel})
+            } while(resp != 5);
+
+
+        }
+
+      </script>  
+
+        
+        
+
+    </body>
+</html>

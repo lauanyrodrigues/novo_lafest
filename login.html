@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - LaFest</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UoUmgqZoIi0YaN/aPIbmfazbKxj2b6wGPWChRr4N/xMab/1pD1jWDEkIS2PxnP5M"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoTljbKdujG/IlM0Z7mI5YOWcHAwTXzLvY2LbDf88"
+        crossorigin="anonymous"></script>
+
+    <style>
+        body {
+            background-color: #f8d135; /* Amarelo */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+        }
+
+        .login-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+        }
+
+        .login-container h2 {
+            margin-bottom: 20px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            color: #007bff;
+        }
+
+        .form-group label {
+            color: #007bff;
+        }
+
+        .btn-custom {
+            background-color: green;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            width: 100%;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-custom:hover {
+            background-color: darkgreen;
+        }
+
+        .navbar {
+            background-color: #fac356; /* Amarelo mais escuro para a barra de navegação */
+        }
+
+        .navbar-brand {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            font-size: 2rem;
+        }
+
+        .nav-link {
+            color: #007bff;
+        }
+
+        footer {
+            background-color: #b6b6b5f3; /* Cor de fundo escura para o rodapé */
+            color: rgb(245, 242, 242); /* Cor do texto no rodapé */
+            text-align: center;
+            padding: 10px;
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+        }
+
+        .footer-links a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        .footer-icon {
+            display: inline-block;
+            font-size: 24px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <!-- Topo do site -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <a class="navbar-brand" href="#">LaFest</a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="produtos.html">Produtos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#ofertas">Ofertas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="carrinho.html">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-bag-check-fill" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                    d="M10.5 3.5a2.5 2.5 0 0 0-5 0V4h5zm1 0V4H15v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V4h3.5v-.5a3.5 3.5 0 0 1 7 0z" />
+                                <path fill-rule="evenodd"
+                                    d="M10.854 8.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L8 10.293l2.646-2.647a.5.5 0 0 1 .708 0z" />
+                            </svg>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link login" href="login.html">Login</a> <!-- Adicionado a classe login -->
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Formulário de Login -->
+    <div class="login-container">
+        <h2>Login</h2>
+        <form>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" placeholder="Digite seu email">
+            </div>
+            <div class="form-group">
+                <label for="password">Senha</label>
+                <input type="password" class="form-control" id="password" placeholder="Digite sua senha">
+            </div>
+            <button type="submit" class="btn btn-custom">Entrar</button>
+        </form>
+    </div>
+
+    <!-- Rodapé -->
+    <footer>
+        <div class="footer-links">
+            <a href="#">Política de Privacidade</a>
+            <a href="#">Termos de Uso</a>
+            <a href="#">Contato</a>
+            <a href="admin.html">Admin</a>
+        </div>
+        <div class="footer-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-balloon"
+                viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                    d="M8 0a5 5 0 0 0-5 5c0 2.5 1.25 5.25 5 8.5 3.75-3.25 5-6 5-8.5a5 5 0 0 0-5-5ZM6 13.93c-.782-.735-1.486-1.455-2-2.142V13c0 1.52 1.781 2.75 4 2.75s4-1.23 4-2.75v-1.212c-.514.687-1.218 1.407-2 2.142v1.068c0 .968-.627 1.75-2 1.75s-2-.782-2-1.75v-1.068Z" />
+            </svg>
+        </div>
+    </footer>
+</body>
+
+</html>

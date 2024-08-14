@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produtos</title>
+
+    <style>
+        .navbar {
+            background-color: #686765;
+            
+        }
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        header {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+        }
+
+        .login-button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .login-button:hover {
+            background-color: #0056b3;
+        }
+
+        .product-container {
+            display: inline-flex;
+            flex-wrap: nowrap;
+            justify-content: space-around;
+        }
+
+        .product-card {
+            width: 200px;
+            margin: 10px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #fff;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .product-card:hover {
+            transform: scale(1.05);
+        }
+
+        img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        .row {
+            text-align: left;
+        }
+
+        .product-container {
+            text-align: right;
+        }
+
+        .sidebar {
+            background-color: #f8f9fa;
+            padding: 15px;
+        }
+
+        .product-list {
+            text-align: start;
+        }
+
+        .card {
+            display: flex;
+            align-items: center;
+            width: 160px;
+            margin: 15px;
+        }
+
+        .card img {
+            height: 150px;
+            width: 150px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .card:hover img {
+            transform: scale(1.2);
+        }
+        .footer-links {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-links a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        .footer-icon {
+            display: inline-block;
+            font-size: 24px;
+        }
+        footer {
+            background-color: #979692ec;
+            /* Cor de fundo escura para o rodapé */
+            color: rgb(241, 241, 241);
+            /* Cor do texto no rodapé */
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Estilos para os botões no rodapé */
+        .footer-button {
+            margin: 5px;
+        }
+        /* custom-image styles */
+        .custom-image {
+            display: block;
+            margin: 0 auto;
+        }
+
+        .custom-image img {
+            transition: transform 0.3s ease;
+        }
+
+        .custom-image:hover img {
+            transform: scale(1.1);
+        }
+
+
+    </style>
+    <script src="custom-img.js"></script>
+
+    <!-- Adicione o link para a biblioteca Bootstrap aqui, se ainda não o fez -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UoUmgqZoIi0YaN/aPIbmfazbKxj2b6wGPWChRr4N/xMab/1pD1jWDEkIS2PxnP5M"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoTljbKdujG/IlM0Z7mI5YOWcHAwTXzLvY2LbDf88"
+        crossorigin="anonymous"></script>
+</head>
+<header>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="#">LaFest</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="produtos.html">Produtos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="carrinho.html">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-bag-check-fill" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd"
+                                d="M10.5 3.5a2.5 2.5 0 0 0-5 0V4h5zm1 0V4H15v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V4h3.5v-.5a3.5 3.5 0 1 1 7 0m-.646 5.354a.5.5 0 0 0-.708-.708L7.5 10.793 6.354 9.646a.5.5 0 1 0-.708.708l1.5 1.5a.5.5 0 0 0 .708 0l3-3z" />
+                        </svg>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#ofertas">Ofertas</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="login.html">Login</a>
+                    
+                </li>
+            </ul>
+            
+        </div>
+        <div class="container-fluid">
+            <a class="navbar-brand"></a>
+            <form class="d-flex" role="Pesquisar">
+              <input class="form-control me-2" type="search" placeholder="Pesquisar" aria-label="Pesquisar">
+              <button class="btn btn-outline-success" type="submit">Pesquisar</button>
+            </form>
+          </div>
+        
+    </nav>
+    
+</header>
+
+<body>
+
+
+    <!-- Conteúdo da Página -->
+    <section class="container mt-4">
+        <div class="row">
+            <!-- Barra Lateral (Filtro) -->
+            <div class="col-md-3">
+                <div class="sidebar">
+                    <h4>Filtro</h4>
+                    <ul class="list-unstyled">
+                        <li>
+                            <label>
+                                <input type="checkbox" value="Categoria1"> Balões
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox" value="Categoria2"> lancheiras
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox" value="Categoria3"> formas para docinhos
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Conteúdo da página de produtos -->
+            <div class="col g-4">
+                <div class="row">
+                    <div class="card">
+                        <div class="position-relative">
+                            <custom-image src="balões.png" class="img-thumbnail" alt="balões"></custom-image>
+                            <div class="card-body">
+                                <h5 class="card-title">Balões brilhosos</h5>
+                                <p class="card-text">R$15,00</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="position-relative">
+                            <custom-image src="balões2.png" class="img-thumbnail" alt="balões2"></custom-image>
+                            <div class="card-body">
+                                <h5 class="card-title">Balões Rosê</h5>
+                                <p class="card-text">R$15,00</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="position-relative">
+                            <custom-image src="formaspdoce.jpg" class="img-thumbnail" alt="formas p doce"></custom-image>
+                            <div class="card-body">
+                                <h5 class="card-title">formas para docinhos</h5>
+                                <p class="card-text">R$ 4,00</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="card">
+                        <custom-image src="formassimples.png" class="img-thumbnail" alt="formassimples"></custom-image>
+                        <div class="card-body">
+                            <h5 class="card-title">Formas de Doces para Festas</h5>
+                            <p class="card-text">R$ 3,00</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="position-relative">
+                            <div class="position-absolute top-0 start-0"></div>
+                            <custom-image src="kitfesta.png" class="img-thumbnail" alt="kitfesta"></custom-image>
+                            <div class="card-body">
+                                <h5 class="card-title">Kit festa de aniversário</h5>
+                                <p class="card-text">R$ 200,00</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <custom-image src="lancheiramickey.png" class="img-thumbnail" alt="lancheira"></custom-image>
+                        <div class="card-body">
+                            <h5 class="card-title">Lancheira do Mickey Mouse - pacote 10 unid</h5>
+                            <p class="card-text">R$ 10,00</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="footer-links">
+            <div>
+                <a href="#">Sobre</a>
+                <a href="#">Serviços</a>
+                <a href="#">Contato</a>
+            </div>
+            <div>
+                <a href="#">Política de Privacidade</a>
+                <a href="#">Termos de Serviço</a>
+            </div>
+            <div class="footer-icon">&#x1F310;</div>
+        </div>
+        
+    </footer>
+
+            <!-- Scripts do Bootstrap (certifique-se de adicionar esses scripts ao final do seu corpo HTML) -->
+            <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+                integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+                crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+                integrity="sha384-csB2V9ISuoHHOgqCLAT3W1rQdjOe1s3F0sExx2L4FUn4nIL5yUbK9gvo3lEvFAF8"
+                crossorigin="anonymous"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+                integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8sh+Wy6pDp4GiSn5dY6Zl/R8RTtB1uREFO8II7"
+                crossorigin="anonymous"></script>
+</body>
+
+</html>
